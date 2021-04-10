@@ -15,7 +15,7 @@ AC_C_CONST
 
 dnl Figure out which math library to use
 case "$host" in
-    *-*-cygwin* | *-*-mingw32*)
+    *-*-cygwin* | *-*-mingw32* | *-windows*)
         EXE=".exe"
         MATHLIB=""
         SYS_GL_LIBS="-lopengl32"
