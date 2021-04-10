@@ -51,7 +51,7 @@ static Sint16 rr1[NUM_RANDOM], rr2[NUM_RANDOM];
 static Sint16 a1[NUM_RANDOM], a2[NUM_RANDOM];
 
 /* RGB colors and alpha */
-static char rr[NUM_RANDOM], rg[NUM_RANDOM], rb[NUM_RANDOM], ra[NUM_RANDOM];
+static Uint8 rr[NUM_RANDOM], rg[NUM_RANDOM], rb[NUM_RANDOM], ra[NUM_RANDOM];
 
 /*! 
 \brief Generate an array of random screen coordinates, radii and RGBA values with an offset for drawing tests.
@@ -253,7 +253,7 @@ void ExecuteTest(SDL_Renderer *renderer, PrimitivesTestCaseFp testCase, int test
 int TestPixel(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 1;
 
 	/* Draw A=255 */
@@ -300,7 +300,7 @@ int TestPixel(SDL_Renderer *renderer)
 int TestHline(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -347,7 +347,7 @@ int TestHline(SDL_Renderer *renderer)
 int TestVline(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -394,7 +394,7 @@ int TestVline(SDL_Renderer *renderer)
 int TestRectangle(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -441,7 +441,7 @@ int TestRectangle(SDL_Renderer *renderer)
 int TestRoundedRectangle(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -488,7 +488,7 @@ int TestRoundedRectangle(SDL_Renderer *renderer)
 int TestBox(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -535,7 +535,7 @@ int TestBox(SDL_Renderer *renderer)
 int TestRoundedBox(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -582,7 +582,7 @@ int TestRoundedBox(SDL_Renderer *renderer)
 int TestLine(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -629,7 +629,7 @@ int TestLine(SDL_Renderer *renderer)
 int TestAALine(SDL_Renderer *renderer)
 {
 	int i;
-	char r, g, b;
+	Uint8 r,g,b;
 	int step = 4;
 
 	/* Draw A=255 */
@@ -679,7 +679,7 @@ int TestAALine(SDL_Renderer *renderer)
 int TestCircle(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -726,7 +726,7 @@ int TestCircle(SDL_Renderer *renderer)
 int TestAACircle(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 4;
 
 	/* Draw A=255 */
@@ -773,7 +773,7 @@ int TestAACircle(SDL_Renderer *renderer)
 int TestFilledCircle(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -820,7 +820,7 @@ int TestFilledCircle(SDL_Renderer *renderer)
 int TestEllipse(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -867,7 +867,7 @@ int TestEllipse(SDL_Renderer *renderer)
 int TestAAEllipse(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 4;
 
 	/* Draw A=255 */
@@ -914,7 +914,7 @@ int TestAAEllipse(SDL_Renderer *renderer)
 int TestFilledEllipse(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 2;
 
 	/* Draw A=255 */
@@ -961,7 +961,7 @@ int TestFilledEllipse(SDL_Renderer *renderer)
 int TestBezier(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 5;
 
 	/* Draw A=255 */
@@ -1015,7 +1015,7 @@ int TestBezier(SDL_Renderer *renderer)
 int TestPolygon(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 3;
 
 	/* Draw A=255 */
@@ -1069,7 +1069,7 @@ int TestPolygon(SDL_Renderer *renderer)
 int TestAAPolygon(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 4;
 
 	/* Draw A=255 */
@@ -1123,7 +1123,7 @@ int TestAAPolygon(SDL_Renderer *renderer)
 int TestFilledPolygon(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 4;
 
 	/* Draw A=255 */
@@ -1177,7 +1177,7 @@ int TestFilledPolygon(SDL_Renderer *renderer)
 int TestTrigon(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 1;
 
 	/* Draw A=255 */
@@ -1227,7 +1227,7 @@ int TestTrigon(SDL_Renderer *renderer)
 int TestArc(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 1;
 
 	/* Draw A=255 */
@@ -1274,7 +1274,7 @@ int TestArc(SDL_Renderer *renderer)
 int TestPie(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 1;
 
 	/* Draw A=255 */
@@ -1321,7 +1321,7 @@ int TestPie(SDL_Renderer *renderer)
 int TestFilledPie(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 1;
 
 	/* Draw A=255 */
@@ -1368,7 +1368,7 @@ int TestFilledPie(SDL_Renderer *renderer)
 int TestThickLine(SDL_Renderer *renderer)
 {
 	int i;
-	char r,g,b;
+	Uint8 r,g,b;
 	int step = 6;
 	
 	/* Draw A=255 */
@@ -1556,7 +1556,7 @@ int TestTexturedPolygon(SDL_Renderer *renderer)
 int TestBigCircle(SDL_Renderer *renderer)
 {
 	int i, j, k;
-	Uint8 r, g, b, a;
+	Uint8 r,g,b,a;
 	int ad;
 	int count = 0;
 
@@ -1626,7 +1626,7 @@ int TestBigCircle(SDL_Renderer *renderer)
 int TestBigEllipse(SDL_Renderer *renderer)
 {
 	int i, j, k;
-	Uint8 r, g, b, a;
+	Uint8 r,g,b,a;
 	Uint8 ad;
 	int count = 0;
 

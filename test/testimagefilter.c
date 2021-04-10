@@ -24,9 +24,6 @@ TestImageFilter.c: test program for MMX filter routines
 
 #ifdef WIN32
 #include <windows.h>
-#ifndef bcmp
-#define bcmp(s1, s2, n) memcmp ((s1), (s2), (n))
-#endif
 #endif
 #include "SDL2_imageFilter.h"
 
@@ -92,7 +89,7 @@ void print_result(int mmx, char *label, unsigned char *src1, unsigned char *src2
 void print_compare(unsigned char *dst1, unsigned char *dst2) 
 { 
 	total_count++;
-	if (bcmp(dst1,dst2,SRC_SIZE)==0) {
+	if (memcmp(dst1,dst2,SRC_SIZE)==0) {
 		printf ("OK\n");
 		ok_count++;
 	} else {
