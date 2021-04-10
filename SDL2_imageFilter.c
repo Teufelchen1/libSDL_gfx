@@ -46,7 +46,7 @@ him for his work.
 
 /* Use GCC intrinsics if available: they support both i386 and x86_64,
    provide ASM-grade performances, and lift the PUSHA/POPA issues. */
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__clang__)
 #  ifdef USE_MMX
 #    include <mmintrin.h>
 #  endif
@@ -118,7 +118,7 @@ void SDL_imageFilterMMXon()
 static int SDL_imageFilterAddMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -236,7 +236,7 @@ static int SDL_imageFilterMeanMMX(unsigned char *Src1, unsigned char *Src2, unsi
 						   unsigned char *Mask)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{ 
 		pusha
@@ -367,7 +367,7 @@ int SDL_imageFilterMean(unsigned char *Src1, unsigned char *Src2, unsigned char 
 static int SDL_imageFilterSubMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -482,7 +482,7 @@ int SDL_imageFilterSub(unsigned char *Src1, unsigned char *Src2, unsigned char *
 static int SDL_imageFilterAbsDiffMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -600,7 +600,7 @@ int SDL_imageFilterAbsDiff(unsigned char *Src1, unsigned char *Src2, unsigned ch
 static int SDL_imageFilterMultMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -792,7 +792,7 @@ int SDL_imageFilterMult(unsigned char *Src1, unsigned char *Src2, unsigned char 
 int SDL_imageFilterMultNorASM(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -923,7 +923,7 @@ int SDL_imageFilterMultNor(unsigned char *Src1, unsigned char *Src2, unsigned ch
 static int SDL_imageFilterMultDivby2MMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{ 
 		pusha
@@ -1060,7 +1060,7 @@ int SDL_imageFilterMultDivby2(unsigned char *Src1, unsigned char *Src2, unsigned
 static int SDL_imageFilterMultDivby4MMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1201,7 +1201,7 @@ int SDL_imageFilterMultDivby4(unsigned char *Src1, unsigned char *Src2, unsigned
 static int SDL_imageFilterBitAndMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1337,7 +1337,7 @@ int SDL_imageFilterBitAnd(unsigned char *Src1, unsigned char *Src2, unsigned cha
 static int SDL_imageFilterBitOrMMX(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1448,7 +1448,7 @@ int SDL_imageFilterBitOr(unsigned char *Src1, unsigned char *Src2, unsigned char
 static int SDL_imageFilterDivASM(unsigned char *Src1, unsigned char *Src2, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1617,7 +1617,7 @@ int SDL_imageFilterDiv(unsigned char *Src1, unsigned char *Src2, unsigned char *
 static int SDL_imageFilterBitNegationMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1724,7 +1724,7 @@ int SDL_imageFilterBitNegation(unsigned char *Src1, unsigned char *Dest, unsigne
 static int SDL_imageFilterAddByteMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char C)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1857,7 +1857,7 @@ int SDL_imageFilterAddByte(unsigned char *Src1, unsigned char *Dest, unsigned in
 static int SDL_imageFilterAddUintMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned int C, unsigned int D)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -1994,7 +1994,7 @@ static int SDL_imageFilterAddByteToHalfMMX(unsigned char *Src1, unsigned char *D
 									unsigned char *Mask)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2130,7 +2130,7 @@ int SDL_imageFilterAddByteToHalf(unsigned char *Src1, unsigned char *Dest, unsig
 int SDL_imageFilterSubByteMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char C)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2263,7 +2263,7 @@ int SDL_imageFilterSubByte(unsigned char *Src1, unsigned char *Dest, unsigned in
 static int SDL_imageFilterSubUintMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned int C, unsigned int D)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2400,7 +2400,7 @@ static int SDL_imageFilterShiftRightMMX(unsigned char *Src1, unsigned char *Dest
 								 unsigned char *Mask)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2543,7 +2543,7 @@ int SDL_imageFilterShiftRight(unsigned char *Src1, unsigned char *Dest, unsigned
 static int SDL_imageFilterShiftRightUintMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char N)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2664,7 +2664,7 @@ int SDL_imageFilterShiftRightUint(unsigned char *Src1, unsigned char *Dest, unsi
 static int SDL_imageFilterMultByByteMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char C)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -2858,7 +2858,7 @@ static int SDL_imageFilterShiftRightAndMultByByteMMX(unsigned char *Src1, unsign
 											  unsigned char C)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3017,7 +3017,7 @@ static int SDL_imageFilterShiftLeftByteMMX(unsigned char *Src1, unsigned char *D
 									unsigned char *Mask)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3159,7 +3159,7 @@ int SDL_imageFilterShiftLeftByte(unsigned char *Src1, unsigned char *Dest, unsig
 static int SDL_imageFilterShiftLeftUintMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char N)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3280,7 +3280,7 @@ int SDL_imageFilterShiftLeftUint(unsigned char *Src1, unsigned char *Dest, unsig
 static int SDL_imageFilterShiftLeftMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char N)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3460,7 +3460,7 @@ int SDL_imageFilterShiftLeft(unsigned char *Src1, unsigned char *Dest, unsigned 
 static int SDL_imageFilterBinarizeUsingThresholdMMX(unsigned char *Src1, unsigned char *Dest, unsigned int SrcLength, unsigned char T)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3596,7 +3596,7 @@ static int SDL_imageFilterClipToRangeMMX(unsigned char *Src1, unsigned char *Des
 								  unsigned char Tmax)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3762,7 +3762,7 @@ static int SDL_imageFilterNormalizeLinearMMX(unsigned char *Src1, unsigned char 
 									  int Nmin, int Nmax)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{
 		pusha
@@ -3990,7 +3990,7 @@ int SDL_imageFilterConvolveKernel3x3Divide(unsigned char *Src, unsigned char *De
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -4180,7 +4180,7 @@ int SDL_imageFilterConvolveKernel5x5Divide(unsigned char *Src, unsigned char *De
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -4483,7 +4483,7 @@ int SDL_imageFilterConvolveKernel7x7Divide(unsigned char *Src, unsigned char *De
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -4840,7 +4840,7 @@ int SDL_imageFilterConvolveKernel9x9Divide(unsigned char *Src, unsigned char *De
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -5388,7 +5388,7 @@ int SDL_imageFilterConvolveKernel3x3ShiftRight(unsigned char *Src, unsigned char
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -5565,7 +5565,7 @@ int SDL_imageFilterConvolveKernel5x5ShiftRight(unsigned char *Src, unsigned char
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -5866,7 +5866,7 @@ int SDL_imageFilterConvolveKernel7x7ShiftRight(unsigned char *Src, unsigned char
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -6229,7 +6229,7 @@ int SDL_imageFilterConvolveKernel9x9ShiftRight(unsigned char *Src, unsigned char
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -6808,7 +6808,7 @@ int SDL_imageFilterSobelX(unsigned char *Src, unsigned char *Dest, int rows, int
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -7061,7 +7061,7 @@ int SDL_imageFilterSobelXShiftRight(unsigned char *Src, unsigned char *Dest, int
 	if ((SDL_imageFilterMMXdetect())) {
 //#ifdef USE_MMX
 #if defined(USE_MMX) && defined(i386)
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 		__asm
 		{
 			pusha
@@ -7326,7 +7326,7 @@ L10412:
 void SDL_imageFilterAlignStack(void)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{				/* --- stack alignment --- */
 		mov ebx, esp   	/* load ESP into EBX */
@@ -7354,7 +7354,7 @@ void SDL_imageFilterAlignStack(void)
 void SDL_imageFilterRestoreStack(void)
 {
 #ifdef USE_MMX
-#if !defined(GCC__)
+#if !defined(GCC__) && !defined(__clang__)
 	__asm
 	{				/* --- restoring old stack --- */
 		mov ebx, [esp]   	/* load old value of ESP */
