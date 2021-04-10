@@ -159,15 +159,9 @@ AC_SUBST(GLES2LIB)
 AC_SUBST(XLIB)
 
 dnl Check for the SDL2_gfx lib
-have_sdlgfx=no
-AC_CHECK_LIB(SDL2_gfx, pixelColor , have_sdlgfx=yes)
-if test x$have_sdlgfx = xyes; then
-    LIBS="$LIBS -lSDL2_gfx"
-else
-    AC_MSG_ERROR([
-*** Unable to find SDL2_gfx library
-])
-fi
+PKG_CHECK_MODULES([SDL2_gfx], [SDL2_gfx])
+CFLAGS="$CFLAGS $SDL2_gfx_CFLAGS"
+LIBS="$LIBS $SDL2_gfx_LIBS"
 
 dnl Finally create all the generated files
 AC_OUTPUT([Makefile])
